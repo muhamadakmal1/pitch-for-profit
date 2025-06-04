@@ -105,104 +105,18 @@
 </ul>
 <hr>
 <h2 id="project-structure">🗂️ Project Structure</h2>
-<p>The repository is organized into two main folders—<code>client</code> and <code>server</code>—plus configuration files at the root.</p>
-<ul class="list-disc pl-4 my-0">
-  <li class="my-0"><strong>/.env.example</strong> – Example environment variables for both frontend and backend (e.g., <code>REACT_APP_API_URL</code>, <code>MONGO_URI</code>, <code>JWT_SECRET</code>, <code>EMAIL_USER</code>, <code>EMAIL_PASS</code>).</li>
-  <li class="my-0"><strong>/client</strong> – React frontend application  
-    <ul class="list-disc pl-4 my-0">
-      <li class="my-0"><strong>package.json</strong> – Frontend dependencies and scripts</li>
-      <li class="my-0"><strong>/public</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>index.html</code> – Root HTML template</li>
-          <li class="my-0"><code>favicon.ico</code>, <code>manifest.json</code>, etc.</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/src</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><strong>index.js</strong> – Entry point rendering <code>&lt;App /&gt;</li>
-          <li class="my-0"><strong>App.js</strong> – Main router and layout</li>
-          <li class="my-0"><strong>api.js</strong> – Axios instance with base URL & interceptors</li>
-          <li class="my-0"><strong>/components</strong>  
-            <ul class="list-disc pl-4 my-0">
-              <li class="my-0"><strong>Navbar.jsx</strong> – Navigation bar with role-based links</li>
-              <li class="my-0"><strong>Footer.jsx</strong> – Footer component</li>
-              <li class="my-0"><strong>Login.jsx</strong> – Login form for all user roles</li>
-              <li class="my-0"><strong>Register.jsx</strong> – Registration form</li>
-              <li class="my-0"><strong>EntrepreneurDashboard.jsx</strong> – Entrepreneur home page</li>
-              <li class="my-0"><strong>InvestorDashboard.jsx</strong> – Investor home page</li>
-              <li class="my-0"><strong>AdminDashboard.jsx</strong> – Admin home page</li>
-              <li class="my-0"><strong>PitchForm.jsx</strong> – Form for entrepreneurs to create/update pitch</li>
-              <li class="my-0"><strong>PitchList.jsx</strong> – Listing of all entrepreneur pitches (for investors)</li>
-              <li class="my-0"><strong>MeetingRequest.jsx</strong> – Entrepreneur meeting request form</li>
-              <li class="my-0"><strong>MeetingList.jsx</strong> – Lists scheduled meetings with status</li>
-              <li class="my-0"><strong>AnalyticsCharts.jsx</strong> – Reusable Chart.js components</li>
-              <li class="my-0"><strong>UserManagement.jsx</strong> – Admin view of all users (approve/block)</li>
-            </ul>
-          </li>
-          <li class="my-0"><strong>/styles</strong>  
-            <ul class="list-disc pl-4 my-0">
-              <li class="my-0"><code>custom.css</code> – Custom CSS overrides for Bootstrap</li>
-            </ul>
-          </li>
-          <li class="my-0"><strong>/utils</strong>  
-            <ul class="list-disc pl-4 my-0">
-              <li class="my-0"><code>authHeader.js</code> – Attaches JWT to Axios requests</li>
-              <li class="my-0"><code>dateFormatter.js</code> – Utility to format dates</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li class="my-0"><strong>/server</strong> – Node.js + Express backend  
-    <ul class="list-disc pl-4 my-0">
-      <li class="my-0"><strong>package.json</strong> – Backend dependencies and scripts</li>
-      <li class="my-0"><strong>server.js</strong> – Entry point: connects to MongoDB, sets up middleware, and mounts routes</li>
-      <li class="my-0"><strong>/config</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>db.js</code> – MongoDB connection logic</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/models</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>User.js</code> – Mongoose schema for users (entrepreneur, investor, admin)</li>
-          <li class="my-0"><code>Pitch.js</code> – Mongoose schema for entrepreneur pitches</li>
-          <li class="my-0"><code>Meeting.js</code> – Mongoose schema for meeting requests</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/routes</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>authRoutes.js</code> – Routes for login & registration</li>
-          <li class="my-0"><code>userRoutes.js</code> – Routes for user profile & admin user management</li>
-          <li class="my-0"><code>pitchRoutes.js</code> – CRUD routes for entrepreneur pitches</li>
-          <li class="my-0"><code>meetingRoutes.js</code> – Routes to schedule, accept/reject meetings</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/controllers</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>authController.js</code> – Handles login, registration, and JWT issuance</li>
-          <li class="my-0"><code>userController.js</code> – Fetch/update user profiles; admin user approval/block</li>
-          <li class="my-0"><code>pitchController.js</code> – Create, read, update, delete entrepreneur pitches</li>
-          <li class="my-0"><code>meetingController.js</code> – Create meeting requests; handle accept/reject actions</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/middleware</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>authMiddleware.js</code> – Protects routes by verifying JWT and roles</li>
-        </ul>
-      </li>
-      <li class="my-0"><strong>/utils</strong>  
-        <ul class="list-disc pl-4 my-0">
-          <li class="my-0"><code>generateToken.js</code> – Creates JWT tokens</li>
-          <li class="my-0"><code>sendEmail.js</code> – Configures Nodemailer to send meeting notifications</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li class="my-0"><strong>/.gitignore</strong> – Ignore <code>node_modules</code>, <code>.env</code>, etc.</li>
-  <li class="my-0"><strong>README.md</strong> – This file</li>
-  <li class="my-0"><strong>package.json</strong> – Root-level scripts (e.g., to run both client & server)</li>
-</ul>
+<dl>
+  <dt>🗂️ backend</dt>
+  <dd>🗂️ Models</dd>
+  <dt>🗂️Routes</dt>
+  <dd>🗂️ uploads</dd>
+  <dd>📄 index.js (server) </dd>
+  <dt>🗂️ frontend</dt>
+  <dd>🗂️ public</dd>
+  <dd>🗂️ src</dd>
+  <dd>📄 index.html </dd>
+  <dd>🗂️ src</dd>
+</dl>
 
 <hr>
 
@@ -231,11 +145,9 @@
     <pre><code>cp .env.example .env</code></pre>
     <p>– Open <code>.env</code> and set:  
       <code>PORT=5000  
-MONGO_URI=&lt;your MongoDB URI&gt;  
-JWT_SECRET=&lt;your JWT secret&gt;  
+MONGO_URI=&lt;your MongoDB URI&gt;   
 EMAIL_USER=&lt;email address for sending notifications&gt;  
 EMAIL_PASS=&lt;email password/app-specific password&gt;  
-REACT_APP_API_URL=http://localhost:5000/api</code>  
     </p>
   </li>
   <li class="my-0"><strong>Install backend dependencies</strong>  
@@ -259,7 +171,7 @@ npm install</code></pre>
     <p>– Launches React app at <code>http://localhost:3000</code>.</p>
   </li>
   <li class="my-0"><strong>Open the app in your browser</strong>  
-    <p>Navigate to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> and register as an Entrepreneur, Investor, or Admin. Use the dashboard nav to access role-specific features.</p>
+    and register as an Entrepreneur, Investor, or Admin. Use the dashboard nav to access role-specific features.</p>
   </li>
 </ol>
 <hr>
