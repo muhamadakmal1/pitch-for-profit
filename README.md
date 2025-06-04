@@ -141,15 +141,6 @@
   <li class="my-0"><strong>Install root dependencies</strong>  
     <pre><code>npm install</code></pre>
   </li>
-  <li class="my-0"><strong>Configure environment variables</strong>  
-    <pre><code>cp .env.example .env</code></pre>
-    <p>– Open <code>.env</code> and set:  
-      <code>PORT=5000  
-MONGO_URI=&lt;your MongoDB URI&gt;   
-EMAIL_USER=&lt;email address for sending notifications&gt;  
-EMAIL_PASS=&lt;email password/app-specific password&gt;  
-    </p>
-  </li>
   <li class="my-0"><strong>Install backend dependencies</strong>  
     <pre><code>cd server  
 npm install</code></pre>
@@ -220,9 +211,7 @@ npm install</code></pre>
 <hr>
 <h2 id="license">📄 License</h2>
 <p>This project is licensed under the <strong>MIT License</strong>. See the <code>LICENSE</code> file for details.</p>
-
 <hr>
 <div align="left"><a href="#top">⬆ Return to Top</a></div>
 <hr>
-
 </div>
